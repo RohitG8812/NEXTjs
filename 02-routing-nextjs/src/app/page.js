@@ -10,25 +10,31 @@ export default function Home() {
   const handleInputChange = (e) => {
     let inputValue = e.target.value
     setValue(inputValue)
-    nextThreeNumbers(value)
-    handleNegative(value)
-  }
 
-  const handleNegative = (num) => {
-    if (num < 0) {
+    if (inputValue === "" || isNaN(inputValue)) {
+      setNegative(false);
+      setResult([]);
+      return;
+    }
+
+    let parsedValue = parseInt(inputValue)
+
+    if (parsedValue < 0) {
       setNegative(true)
     } else {
       setNegative(false)
+      nextThreeNumbers(parsedValue)
     }
   }
 
   const nextThreeNumbers = (num) => {
     setResult([])
-    let firstNum = num + 2
+    let resultOf = []
+    let firstNum = num
     for (let i = 1; i <= 3; i++) {
-      setResult((prev) => [...prev, firstNum])
-      firstNum += 2
+      resultOf.push(firstNum + i * 2)
     }
+    setResult(resultOf)
   }
 
   console.log(value)
@@ -36,9 +42,9 @@ export default function Home() {
     <div className={styles.page}>
       <main className={styles.main}>
         <h1>HOME PAGE</h1>
-        <input type="number" placeholder="Placeholder" value={value} onChange={(e) => { handleInputChange(e), negativeValue() }} />
+        <input type="number" placeholder="Placeholder" value={value} onChange={handleInputChange} />
         <p>
-          {negative ? <p style={{ color: 'red' }}>Negative Number Not allowed</p> : <p>{result.toString()}</p>}
+          {negative ? <p style={{ color: 'red' }}>Negative Number Not allowed</p> : <p>{result.join(", ")}</p>}
         </p>
       </main>
     </div>
