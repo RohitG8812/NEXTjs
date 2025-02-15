@@ -1,51 +1,26 @@
 'use client'
-import { useState } from "react";
+import Link from "next/link";
 import styles from "./page.module.css";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
-  const [value, setValue] = useState("")
-  const [negative, setNegative] = useState(false)
-  const [result, setResult] = useState([])
+  const router = useRouter()
 
-  const handleInputChange = (e) => {
-    let inputValue = e.target.value
-    setValue(inputValue)
-
-    if (inputValue === "" || isNaN(inputValue)) {
-      setNegative(false);
-      setResult([]);
-      return;
-    }
-
-    let parsedValue = parseInt(inputValue)
-
-    if (parsedValue < 0) {
-      setNegative(true)
-    } else {
-      setNegative(false)
-      nextThreeNumbers(parsedValue)
-    }
+  const handleBtnClick = (name) => {
+    router.push(name)
   }
 
-  const nextThreeNumbers = (num) => {
-    setResult([])
-    let resultOf = []
-    let firstNum = num
-    for (let i = 1; i <= 3; i++) {
-      resultOf.push(firstNum + i * 2)
-    }
-    setResult(resultOf)
-  }
-
-  console.log(value)
   return (
     <div className={styles.page}>
       <main className={styles.main}>
         <h1>HOME PAGE</h1>
-        <input type="number" placeholder="Placeholder" value={value} onChange={handleInputChange} />
-        <p>
-          {negative ? <p style={{ color: 'red' }}>Negative Number Not allowed</p> : <p>{result.join(", ")}</p>}
-        </p>
+        {/* //? Linking */}
+        <Link href={"/login"}>Go to Login Page</Link>
+        <Link href={"/about"}>Go to About Page</Link>
+
+        {/* //? Navigation  */}
+        <button onClick={() => handleBtnClick("/login")}>Go To Login Page</button>
+        <button onClick={() => handleBtnClick('/about')}>Go To About Page</button>
       </main>
     </div>
   );

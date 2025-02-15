@@ -2,6 +2,7 @@
 import React from 'react'
 import styles from '../page.module.css'
 import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 
 function page() {
     const router = useRouter()
@@ -13,8 +14,9 @@ function page() {
             <main className={styles.main}>
                 <h1>Login Page</h1>
                 <button onClick={handleOpenAboutPage}>About Page</button>
+                <Link href={"/"}>Go to HomePage</Link>
             </main>
-        </div>
+        </div> 
     )
 }
 
