@@ -1,0 +1,16 @@
+.login-list{
+    display: flex;
+    justify-content: center;
+    gap: 90px;
+    margin-top: 20px;
+    font-style: italic;
+    margin-bottom: 30px;
+}
+
+.login-list li{
+    list-style: none;
+}
+
+.login-list li:hover{
+    color: red;
+}

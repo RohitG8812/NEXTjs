@@ -4,11 +4,11 @@ import React from 'react'
 function page() {
   return (
     <main>
-      <div>About Page</div>
+      <div>About Main Page</div>
       <br />
-      <Link href={"/about/aboutCollege"}>Go To About College</Link>
+      {/* <Link href={"/about/aboutCollege"}>Go To College Section</Link>
       <br /><br />
-      <Link href={"/about/aboutStudent"}>Go To About Student</Link>
+      <Link href={"/about/aboutStudent"}>Go To Student Section</Link> */}
     </main>
   )
 }
