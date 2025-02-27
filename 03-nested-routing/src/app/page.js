@@ -7,7 +7,7 @@ export default function Home() {
     <div className={styles.page}>
       <main className={styles.main}>
         <h1>Home Page</h1>
-        <Link href={'/about'}>About Page</Link>
+        <Link href={'/about'}>About Page(Common Layout)</Link>
         <Link href={'/login'}>Login Page</Link>
         <br />
         <Link href={"/about/aboutCollege"}>Go To About College</Link>
