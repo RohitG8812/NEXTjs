@@ -13,8 +13,8 @@ export default function Home() {
         <Link href={"/about/aboutCollege"}>Go To About College</Link>
         <br />
         <Link href={"/about/aboutStudent"}>Go To About Student</Link>
-        {/* <Link href={"/dynamicRouting"}>Go To Student List</Link> */}
-        <Link href={"/dynamicRoute"}>Go To Student List</Link>
+        <Link href={"/dynamicRouting"}>Go To Student List</Link>
+        {/* <Link href={"/dynamicRoute"}>Go To Student List</Link> */}
       </main>
     </div>
   );
